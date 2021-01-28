@@ -1,0 +1,32 @@
+{
+    "gwdrawpolicy":
+    {
+        "inputs":
+        [
+            {"name":"Policy"    ,   "kind":"required" ,    "type":"numeric"},
+            {"name":"ArrowStyle",   "kind":"namevalue",    "type":"choices={'Pretty', 'Fast'}"},
+            {"name":"ArrowColor",   "kind":"namevalue",    "type":"char"}
+        ]
+    },
+
+    "gwdraw":
+    {
+        "inputs":
+        [
+            {"name":"Policy"    ,   "kind":"namevalue",    "type":"numeric"},
+            {"name":"Episode"   ,   "kind":"namevalue",    "type":"numeric"},
+            {"name":"ArrowStyle",   "kind":"namevalue",    "type":"choices={'Pretty', 'Fast'}"},
+            {"name":"ArrowColor",   "kind":"namevalue",    "type":"char"}
+        ]
+    },
+
+    "gwplotarrow":
+    {
+        "inputs":
+        [
+            {"name":"Position"  ,   "kind":"required" ,    "type":"numeric"},
+            {"name":"Action"    ,   "kind":"required" ,    "type":"numeric"},
+            {"name":"Color"     ,   "kind":"namevalue",    "type":"char"}
+        ]
+    }
+}
