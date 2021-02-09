@@ -7,7 +7,7 @@
 % 3 = dot cloud 3
 % 4 = OCR data
 
-dataSetNr = 1; % Change this to load new data 
+dataSetNr = 3; % Change this to load new data 
 
 % X - Data samples
 % D - Desired output from classifier for each sample
@@ -29,31 +29,39 @@ selectAtRandom = true;          % true = select features at random, false = sele
 % XBinComb = combineBins(XBins, [1,2,3]);
 
 % Add your own code to setup data for training and test here
-% XTrain = ...
-% DTrain = ...
-% LTrain = ...
-% XTest  = ...
-% DTest  = ...
-% LTest  = ...
+XTrain = XBins{1};
+DTrain = DBins{1};
+LTrain = LBins{1};
+XTest  = XBins{2};
+DTest  = DBins{2};
+LTest  = LBins{2};
 
 %% Modify the X Matrices so that a bias is added
 %  Note that the bias must be the last feature for the plot code to work
 
+% As suggested add bias as the last feature. Choose 1 for simplicity.
+x0 = ones(length(XTrain), 1);
+
 % The training data
-% XTrain = ...
+XTrain = [XTrain, x0];
 
 % The test data
-% XTest = ...
+XTest = [XTest, x0];
 
 %% Train your multi-layer network
 %  Note: You need to modify trainMultiLayer() and runMultiLayer()
 %  in order to train the network
+alpha = 1;
+numInput = width(XTrain);
+numOutput = width(DTrain);
+numHidden     = round(length(XTrain)/(alpha*(numInput+numOutput)));
+%numHidden     = 167;     % Change this, number of hidden neurons 
+numIterations = 7000;   % Change this, number of iterations (epochs)
+learningRate  = 0.01; % Change this, your learning rate
 
-numHidden     = 7;     % Change this, number of hidden neurons 
-numIterations = 800;   % Change this, number of iterations (epochs)
-learningRate  = 0.001; % Change this, your learning rate
-W0 = 0; % Initialize your weight matrix W
-V0 = 0; % Initialize your weight matrix V
+W0 = randn(width(XTrain), numHidden)./1000; % Initialize your weight matrix W
+% Plus one in hidden nodes to account for bias in run multilayer
+V0 = randn(numHidden + 1, width(DTrain))./1000; % Initialize your weight matrix V
 
 % Run training loop
 tic;

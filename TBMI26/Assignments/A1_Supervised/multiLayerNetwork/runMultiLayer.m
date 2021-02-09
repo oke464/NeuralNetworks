@@ -12,9 +12,12 @@ function [ Y, L, U ] = runMultiLayer( X, W, V )
 %              U - Activation of hidden neurons (vector)
 
 % Add your own code here
-S = 0; % Calculate the weighted sum of input signals (hidden neuron)
-U = 0; % Calculate the activation of the hidden neurons (use hyperbolic tangent)
-Y = 0; % Calculate the weighted sum of the hidden neurons
+% b on paper
+S = X*W; % Calculate the weighted sum of input signals (hidden neuron) 
+% c on paper
+U = [tanh(S), ones(size(S, 1), 1)]; % Calculate the activation of the hidden neurons (use hyperbolic tangent)
+% e on paper
+Y = U*V; % Calculate the weighted sum of the hidden neurons
 
 % Calculate labels
 [~, L] = max(Y,[],2);

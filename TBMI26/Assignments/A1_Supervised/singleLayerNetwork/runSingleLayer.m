@@ -11,7 +11,7 @@ function [ Y, L ] = runSingleLayer(X, W)
 %              L - The resulting label of each sample (vector) 
 
 % Add your own code here
-Y = 0;
+Y = (W*X')';
 
 % Calculate labels
 [~, L] = max(Y, [], 2);

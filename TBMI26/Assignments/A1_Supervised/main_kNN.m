@@ -18,7 +18,7 @@ dataSetNr = 1; % Change this to load new data
 plotCase(X,D)
 
 %% Select a subset of the training samples
-
+% Use this one for not crossval
 numBins = 2;                    % Number of bins you want to devide your data into
 numSamplesPerLabelPerBin = 100; % Number of samples per label per bin, set to inf for max number (total number is numLabels*numSamplesPerBin)
 selectAtRandom = true;          % true = select samples at random, false = select the first features

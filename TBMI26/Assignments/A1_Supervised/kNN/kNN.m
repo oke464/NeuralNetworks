@@ -46,7 +46,13 @@ for i=1:height(X)
     % value i.e. the most labels
     sortLabelCount = sortrows(labelCount, 'descend');
 
-    kNNMostLabels = sortLabelCount(1,2);
+    if sortLabelCount(1,2) == sortLabelCount(2,2)
+        % Use closest point if closest neighbours are equal
+        kNNMostLabels = distLabelMatrix(1,2);
+    else
+        kNNMostLabels = sortLabelCount(1,2);
+    
+    end
     
     allLabels = [allLabels; kNNMostLabels];
 
