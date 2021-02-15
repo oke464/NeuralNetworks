@@ -1,0 +1,11 @@
+name: lab
+channels:
+  - defaults
+dependencies:
+  - jupyterlab
+  - matplotlib
+  - nomkl
+  - python-graphviz
+  - pydot
+  - scikit-learn
+  - tensorflow=2.0

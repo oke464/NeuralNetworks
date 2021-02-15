@@ -35,8 +35,8 @@ for n = 1:numIterations
     j = length(HTrain);
     w2 = (ones(j,1) - HTrain.^2);
     w1 = (2/NTrain)*Vout*(YTrain-DTrain)';
-    %grad_w = XTrain'*(w1' .* w2); % And the input layer
-    grad_w = (2/NTrain*Vout*(YTrain-DTrain)'.*(1-HTrain.^2)'*XTrain)';
+    grad_w = XTrain'*(w1' .* w2); % And the input layer
+   % grad_w = (2/NTrain*Vout*(YTrain-DTrain)'.*(1-HTrain.^2)'*XTrain)';
     grad_w = grad_w(:, 1:end-1); % Remove "bias column" from Vout
     
     % Take a learning step

@@ -7,7 +7,7 @@
 % 3 = dot cloud 3
 % 4 = OCR data
 
-dataSetNr = 3; % Change this to load new data 
+dataSetNr = 4; % Change this to load new data 
 
 % X - Data samples
 % D - Desired output from classifier for each sample
@@ -56,7 +56,7 @@ numInput = width(XTrain);
 numOutput = width(DTrain);
 numHidden     = round(length(XTrain)/(alpha*(numInput+numOutput)));
 %numHidden     = 167;     % Change this, number of hidden neurons 
-numIterations = 7000;   % Change this, number of iterations (epochs)
+numIterations = 50000;   % Change this, number of iterations (epochs)
 learningRate  = 0.01; % Change this, your learning rate
 
 W0 = randn(width(XTrain), numHidden)./1000; % Initialize your weight matrix W
