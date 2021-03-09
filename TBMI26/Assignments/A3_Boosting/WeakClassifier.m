@@ -9,7 +9,10 @@ function C = WeakClassifier(T, P, X)
 % This is for your own benefit, since a loop will be too slow to use
 % with a reasonable amount of Haar features and training images.
 
-
+C = P*X > P*T; % If true value is 1 if false value is 0
+C = double(C); % Cast vector to a double
+C(C==0) = -1; % Turn all zeros to -1
+    
 
 end
 

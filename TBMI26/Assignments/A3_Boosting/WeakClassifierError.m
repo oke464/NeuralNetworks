@@ -8,8 +8,9 @@ function E = WeakClassifierError(C, D, Y)
 % You are not allowed to use a loop in this function.
 % This is for your own benefit, since a loop will be too slow to use
 % with a reasonable amount of Haar features and training images.
-
-
-
+bins = (Y ~= C);
+E = bins*D; % If yi != ci then 1, else 0.
+E = double(E);
+%E(E>0.5) = 1 - E(E>0.5);
 end
 
