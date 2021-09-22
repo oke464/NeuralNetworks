@@ -54,10 +54,10 @@ XTest = [XTest, x0];
 alpha = 1;
 numInput = width(XTrain);
 numOutput = width(DTrain);
-numHidden     = round(length(XTrain)/(alpha*(numInput+numOutput)));
+numHidden     = 30;
 %numHidden     = 167;     % Change this, number of hidden neurons 
-numIterations = 50000;   % Change this, number of iterations (epochs)
-learningRate  = 0.01; % Change this, your learning rate
+numIterations = 10000;   % Change this, number of iterations (epochs)
+learningRate  = 0.001; % Change this, your learning rate
 
 W0 = randn(width(XTrain), numHidden)./1000; % Initialize your weight matrix W
 % Plus one in hidden nodes to account for bias in run multilayer

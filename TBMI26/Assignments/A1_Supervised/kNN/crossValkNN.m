@@ -18,7 +18,7 @@ dataSetNr = 4; % Change this to load new data
 %% Select a subset of the training samples
 % Use this one for crossval
 numBins = 4;                    % Number of bins you want to devide your data into
-numSamplesPerLabelPerBin = 100; % Number of samples per label per bin, set to inf for max number (total number is numLabels*numSamplesPerBin)
+numSamplesPerLabelPerBin = inf; % Number of samples per label per bin, set to inf for max number (total number is numLabels*numSamplesPerBin)
 selectAtRandom = true;          % true = select samples at random, false = select the first features
 
 [XBins, DBins, LBins] = selectTrainingSamples(X, D, L, numSamplesPerLabelPerBin, numBins, selectAtRandom);
@@ -102,6 +102,16 @@ bestK = sortedkAccList(1,1)
 % Classify test data on the final bin with best k
 LPredTest4  = kNN(XTest4 , bestK, XTrain4, LTrain4);
 LPredTrain4  = kNN(XTrain4 , bestK, XTrain4, LTrain4);
+
+% The confucionMatrix
+confMTest4 = calcConfusionMatrix(LPredTest4, LTest4);
+% The accuracy of the final test bin
+accTest4 = calcAccuracy(confMTest4)
+
+% The confucionMatrix
+confMTrain4 = calcConfusionMatrix(LPredTrain4, LTrain4);
+% The accuracy of the final test bin
+accTrain4 = calcAccuracy(confMTrain4)
 
 
 %% Plot classifications

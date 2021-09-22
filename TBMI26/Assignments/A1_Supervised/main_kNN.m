@@ -7,7 +7,7 @@
 % 3 = dot cloud 3
 % 4 = OCR data
 
-dataSetNr = 4; % Change this to load new data 
+dataSetNr = 1; % Change this to load new data 
 
 % X - Data samples
 % D - Desired output from classifier for each sample
@@ -20,7 +20,7 @@ dataSetNr = 4; % Change this to load new data
 %% Select a subset of the training samples
 % Use this one for not crossval
 numBins = 2;                    % Number of bins you want to devide your data into
-numSamplesPerLabelPerBin = 100; % Number of samples per label per bin, set to inf for max number (total number is numLabels*numSamplesPerBin)
+numSamplesPerLabelPerBin = inf; % Number of samples per label per bin, set to inf for max number (total number is numLabels*numSamplesPerBin)
 selectAtRandom = true;          % true = select samples at random, false = select the first features
 
 [XBins, DBins, LBins] = selectTrainingSamples(X, D, L, numSamplesPerLabelPerBin, numBins, selectAtRandom);
